@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("v3/payments")
+@RequestMapping("v1/payments")
 public class PaymentV1Controller {
 
     @Autowired
