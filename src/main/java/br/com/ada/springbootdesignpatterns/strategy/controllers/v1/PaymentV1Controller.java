@@ -1,6 +1,7 @@
 package br.com.ada.springbootdesignpatterns.strategy.controllers.v1;
 
-import br.com.ada.springbootdesignpatterns.strategy.services.PaymentMethodStrategy;
+import br.com.ada.springbootdesignpatterns.strategy.PaymentMethodStrategy;
+import br.com.ada.springbootdesignpatterns.strategy.PurchaseOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,8 @@ public class PaymentV1Controller {
                 .filter(it -> it.getClass().equals(PaymentMethod.valueOf(paymentMethod).getPaymentMethodClass()))
                 .findFirst().orElseThrow(() -> new RuntimeException("MÉTODO DE PAGAMENTO NÃO ENCONTRADO"));
 
-        return paymentMethodStrategy.pay();
+        PurchaseOrder purchaseOrder = new PurchaseOrder(paymentMethodStrategy);
+        return purchaseOrder.pay();
     }
 
 }

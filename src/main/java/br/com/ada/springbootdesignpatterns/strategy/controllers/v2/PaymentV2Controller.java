@@ -1,6 +1,7 @@
 package br.com.ada.springbootdesignpatterns.strategy.controllers.v2;
 
-import br.com.ada.springbootdesignpatterns.strategy.services.PaymentMethodStrategy;
+import br.com.ada.springbootdesignpatterns.strategy.PaymentMethodStrategy;
+import br.com.ada.springbootdesignpatterns.strategy.PurchaseOrder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,9 @@ public class PaymentV2Controller {
     @GetMapping("pay/{paymentMethod}")
     public String pay(@PathVariable String paymentMethod) {
         PaymentMethodStrategy paymentMethodStrategy = paymentMethodStrategyMap.get(paymentMethod);
-        return paymentMethodStrategy.pay();
+
+        PurchaseOrder purchaseOrder = new PurchaseOrder(paymentMethodStrategy);
+        return purchaseOrder.pay();
     }
 
 }

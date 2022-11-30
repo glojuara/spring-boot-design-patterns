@@ -3,7 +3,7 @@ package br.com.ada.springbootdesignpatterns.strategy.controllers.v1;
 import br.com.ada.springbootdesignpatterns.strategy.services.BoletoPaymentMethodStrategy;
 import br.com.ada.springbootdesignpatterns.strategy.services.CreditCardPaymentMethodStrategy;
 import br.com.ada.springbootdesignpatterns.strategy.services.PayPalPaymentMethodStrategy;
-import br.com.ada.springbootdesignpatterns.strategy.services.PaymentMethodStrategy;
+import br.com.ada.springbootdesignpatterns.strategy.PaymentMethodStrategy;
 
 public enum PaymentMethod {
 

@@ -1,5 +1,6 @@
 package br.com.ada.springbootdesignpatterns.strategy.services;
 
+import br.com.ada.springbootdesignpatterns.strategy.PaymentMethodStrategy;
 import org.springframework.stereotype.Service;
 
 @Service("CREDIT_CARD")
